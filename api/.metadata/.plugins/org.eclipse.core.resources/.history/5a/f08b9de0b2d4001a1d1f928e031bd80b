@@ -1,0 +1,14 @@
+package com.brosoft.regalon.services;
+
+import com.brosoft.regalon.dto.SearchFiltersDto;
+import com.brosoft.regalon.dto.SearchResponseDto;
+
+public class SearchServiceImp implements SearchService {
+
+	@Override
+	public SearchResponseDto search(SearchFiltersDto searchFilters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.brosoft.regalon.services;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.brosoft.regalon.dto.SearchFiltersDto;
+import com.brosoft.regalon.dto.SearchResponseDto;
+import com.brosoft.regalon.dto.SearchResponseProductDto;
+
+public class SearchServiceImp implements SearchService {
+
+	@Override
+	public SearchResponseDto search(SearchFiltersDto searchFilters) {
+		SearchResponseDto response = new SearchResponseDto();
+		
+		List<SearchResponseProductDto> products = new ArrayList<>();
+		
+		products.add(new SearchResponseProductDto("title1", "description1", "url1", "imgUrl1", BigDecimal.valueOf(11)));
+		products.add(new SearchResponseProductDto("title2", "description1", "url1", "imgUrl1", BigDecimal.valueOf(154)));
+		products.add(new SearchResponseProductDto("title3", "description1", "url1", "imgUrl1", BigDecimal.valueOf(5)));
+		products.add(new SearchResponseProductDto("title4", "description1", "url1", "imgUrl1", BigDecimal.valueOf(14)));
+		products.add(new SearchResponseProductDto("title5", "description1", "url1", "imgUrl1", BigDecimal.valueOf(1000)));		
+		
+		return response;
+	}
+
+}

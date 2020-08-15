@@ -1,0 +1,8 @@
+package com.brosoft.regalon.dto;
+
+@Data
+public class SearchFiltersDto {
+
+	private String age;
+	
+}

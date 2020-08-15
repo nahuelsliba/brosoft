@@ -1,0 +1,15 @@
+package com.brosoft.regalon.controllers;
+
+import com.brosoft.regalon.dto.SearchFiltersDto;
+import com.brosoft.regalon.dto.SearchResponseDto;
+
+@RestController
+@RequestMapping("/api/search")
+public class SearchController {
+	
+    @PostMapping
+	public SearchResponseDto search(@RequestBody SearchFiltersDto searchFilters) {
+	    return new SearchResponseDto();
+	}
+
+}

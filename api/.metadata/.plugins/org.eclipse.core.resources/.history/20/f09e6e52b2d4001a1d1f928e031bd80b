@@ -1,0 +1,5 @@
+package com.brosoft.regalon.services;
+
+public interface SearchService {
+
+}

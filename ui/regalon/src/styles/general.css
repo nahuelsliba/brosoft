@@ -1,0 +1,95 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+#root {
+ background-color: bisque;   
+}
+
+div {
+    padding: 2px;
+    margin: 2px;
+}
+
+.col {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.App {
+    border: 1px solid #000000;
+}
+
+.AppHeader {
+    border: 1px solid green;
+    width: 100%;
+}
+
+.AppContainer {
+    border: 1px solid blue;
+    background-color: white;
+    height: 95vh!important;
+}
+
+.AppContainerRowCenter {
+    border: 1px solid gray;
+    height: 95%;
+}
+
+.AppContainerCenter {
+    width: 100%;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 95%;
+
+    border: 1px solid gray;
+}
+
+.Wizard {
+    border: 1px solid red;
+    height: 100%;
+    position: relative;
+}
+
+.WizardProgressBar {
+    border: 1px solid violet;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.WizardControlsContainer {
+    border: 1px solid yellow;
+    position: absolute; 
+    bottom: 0px;
+    width: 100%;
+}
+
+.WizardControls {
+    border: 1px solid orange;
+    max-width: 320px; 
+    margin: 0 auto;
+}
+
+.WizardControls button {
+    min-width: 100px;
+}

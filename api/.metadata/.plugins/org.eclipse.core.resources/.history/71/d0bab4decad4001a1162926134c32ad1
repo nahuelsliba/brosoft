@@ -1,0 +1,5 @@
+package com.brosoft.regalon.config;
+
+public class SecurityConfig {
+
+}

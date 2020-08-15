@@ -1,0 +1,5 @@
+package com.brosoft.regalon.dto;
+
+public class SearchFiltersDto {
+
+}
