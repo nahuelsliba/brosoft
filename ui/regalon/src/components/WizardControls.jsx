@@ -6,7 +6,8 @@ import { searchProducts } from '../helpers/fetchers/wizardFetcher';
 
 function WizardControls({ 
     currentStep, showResultItems, 
-    _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts
+    _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts, 
+    step1State, step2State, step3State, step4State
   }) {
 
   const handleOnClickNext = () => {
@@ -20,8 +21,23 @@ function WizardControls({
   }
 
   const handleOnClickSearch = () => {
-    console.log('handleOnClickSearch');
-    _searchProducts(null);
+    const filters = {
+      gender : step1State.step1_gender,
+      age : step1State.step1_age,
+      ageInterval : step1State.step1_ageInterval,
+      ageIntervalFrom : step1State.step1_ageIntervalFrom,
+      ageIntervalTo : step1State.step1_ageIntervalTo,
+      
+      creativity : step2State.step2_displays[0].value,
+      sporty : step2State.step2_displays[1].value,
+      intellectual : step2State.step2_displays[2].value,
+
+      reliability : step3State.step3_display.value,
+
+      amountFrom : step4State.step4_amountFrom,
+      amountTo : step4State.step4_amountTo
+    };
+    _searchProducts(filters);
   }
 
   const handleOnClickReset = () => {
@@ -39,7 +55,7 @@ function WizardControls({
         {currentStep === 5 && !showResultItems && 
         <Button variant="secondary" onClick={ handleOnClickReset } className="float-left" >Cancelar</Button> }
         {currentStep === 5 && !showResultItems && 
-        <Button variant="primary" onClick={ handleOnClickSearch } className="float-right" >Buscar</Button> }
+        <Button variant="primary" onClick={ handleOnClickSearch } className="float-right" >Buscar </Button> }
 
         {showResultItems && <Button variant="primary" onClick={ handleOnClickReset } >Nueva busqueda</Button> }
     </div>
@@ -49,7 +65,12 @@ function WizardControls({
 const mapStateToProps = (state) => {  
   return { 
     currentStep : state.wizard.currentStep,
-    showResultItems : state.wizard.showResultItems
+    showResultItems : state.wizard.showResultItems,
+
+    step1State : state.wizardStep1,
+    step2State : state.wizardStep2,
+    step3State : state.wizardStep3,
+    step4State : state.wizardStep4
   };
 }
 

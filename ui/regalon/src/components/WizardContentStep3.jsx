@@ -19,7 +19,7 @@ function WizardContentStep3( { _display, _updateDisplayStep3Action } ) {
 }
 
 const mapStateToProps = (state) => {  
-  return { _display : state.wizardStep3.display };
+  return { _display : state.wizardStep3.step3_display };
 }
 
 const mapDispatchToProps = (dispatch) => {

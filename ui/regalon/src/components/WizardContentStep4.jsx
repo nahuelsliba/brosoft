@@ -1,13 +1,16 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { updateTextStep1Action } from '../redux/actions/wizardStep1';
+import { updateAmountAction } from '../redux/actions/wizardStep4';
 
-function WizardContentStep4( { textStep1, _updateTextStep1Action } ) {
+function WizardContentStep4( { amountFrom, amountTo, _updateAmountAction } ) {
 
-  const handleOnChangeTextStep1 = (input) => {
-    console.log(input.target.value);
-    //_updateTextStep1Action(input.target.value);
+  const handleOnChangeAmountFrom = (input) => {
+    _updateAmountAction(input.target.value, amountTo);
+  }
+
+  const handleOnChangeAmountTo = (input) => {
+    _updateAmountAction(amountFrom, input.target.value);
   }
 
   return (
@@ -16,9 +19,9 @@ function WizardContentStep4( { textStep1, _updateTextStep1Action } ) {
         <Form.Label>Cuanto quiers gastar? </Form.Label>   
         <Form.Group>                            
           <Form.Label>Al menos: </Form.Label>     
-          <Form.Control type="text" placeholder="euros" />
+          <Form.Control type="text" placeholder={amountFrom} onChange={handleOnChangeAmountFrom}/>
           <Form.Label>y no mas de: </Form.Label>     
-          <Form.Control type="text" placeholder="euros" />
+          <Form.Control type="text" placeholder={amountTo} onChange={handleOnChangeAmountTo} />
         </Form.Group>
       </Form>
     </div>
@@ -26,12 +29,15 @@ function WizardContentStep4( { textStep1, _updateTextStep1Action } ) {
 }
 
 const mapStateToProps = (state) => {  
-  return { textStep1 : state.wizardStep1.textStep1 };
+  return { 
+    amountFrom : state.wizardStep4.step4_amountFrom, 
+    amountTo : state.wizardStep4.step4_amountTo
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      _updateTextStep1Action: (newValue) => dispatch(updateTextStep1Action(newValue))
+      _updateAmountAction: (amountFrom, amountTo) => dispatch(updateAmountAction(amountFrom, amountTo))
   }
 }
 

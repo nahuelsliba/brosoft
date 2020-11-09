@@ -17,8 +17,8 @@ function WizardContentStep2( { availablePoints, displays, _updateDisplayStep2Act
 
 const mapStateToProps = (state) => {  
   return { 
-    availablePoints : state.wizardStep2.availablePoints,
-    displays : state.wizardStep2.displays
+    availablePoints : state.wizardStep2.step2_availablePoints,
+    displays : state.wizardStep2.step2_displays
   };
 }
 

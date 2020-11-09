@@ -1,20 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { updateTextStep1Action } from '../redux/actions/wizardStep1';
+import { updateGenderAction, updateAgeAction } from '../redux/actions/wizardStep1';
 
-function WizardContentStep1( { textStep1, _updateTextStep1Action } ) {
-
-  const [gender, setGender] = useState('gender');
-  const [showAgeInterval, setShowAgeInterval] = useState(false);
-
-  const handleOnChangeTextStep1 = (input) => {
-    console.log(input.target.value);
-    _updateTextStep1Action(input.target.value);
-  }
+function WizardContentStep1( { gender, age, ageInterval, ageIntervalFrom, ageIntervalTo, _updateGenderAction, _updateAgeAction } ) {
 
   const handleOnChangeGender = (input) => {
-    setGender(getGenderNameByCode(input.target.value));
+    _updateGenderAction(input.target.value);
   }
 
   const getGenderNameByCode = (code) => {
@@ -41,8 +33,20 @@ function WizardContentStep1( { textStep1, _updateTextStep1Action } ) {
     }
   }
 
+  const handleOnChangeAge = (input) => {
+    _updateAgeAction(input.target.value, ageInterval, ageIntervalFrom, ageIntervalTo);
+  }
+
   const handleOnChangeAgeCheck = (input) => {
-    setShowAgeInterval(!showAgeInterval);
+    _updateAgeAction(age, !ageInterval, ageIntervalFrom, ageIntervalTo);
+  }
+
+  const handleOnChangeAgeIntervalFrom = (input) => {
+    _updateAgeAction(age, ageInterval, input.target.value, ageIntervalTo);
+  }
+
+  const handleOnChangeAgeIntervalTo = (input) => {
+    _updateAgeAction(age, ageInterval, ageIntervalFrom, input.target.value);
   }
 
   return (
@@ -62,17 +66,17 @@ function WizardContentStep1( { textStep1, _updateTextStep1Action } ) {
         
         <Form.Group>     
           <Form.Label>Que tiene tantos anios: </Form.Label>     
-          <Form.Control type="text" placeholder="Edad" disabled={showAgeInterval}/>
+          <Form.Control type="text" placeholder="Edad" disabled={ageInterval} onChange={handleOnChangeAge}/>
         </Form.Group>        
         <div key="default-chackbox" className="mb-3">
           <Form.Check type="checkbox" id="default-chackbox" label="No se la edad exacta." onChange={handleOnChangeAgeCheck} />
         </div>
-        {showAgeInterval && 
+        {ageInterval && 
         <Form.Group>               
           <Form.Label>Al menos: </Form.Label>     
-          <Form.Control type="text" placeholder="anios" />
+          <Form.Control type="text" placeholder="anios" onChange={handleOnChangeAgeIntervalFrom} />
           <Form.Label>y no mas de: </Form.Label>     
-          <Form.Control type="text" placeholder="anios" />
+          <Form.Control type="text" placeholder="anios" onChange={handleOnChangeAgeIntervalTo} />
         </Form.Group>
         }
       </Form>
@@ -81,13 +85,20 @@ function WizardContentStep1( { textStep1, _updateTextStep1Action } ) {
   );
 }
 
-const mapStateToProps = (state) => {  
-  return { textStep1 : state.wizardStep1.textStep1 };
+const mapStateToProps = (state) => {
+  return {
+    gender : state.wizardStep1.step1_gender,
+    age : state.wizardStep1.step1_age,
+    ageInterval : state.wizardStep1.step1_ageInterval,
+    ageIntervalFrom : state.wizardStep1.step1_ageIntervalFrom,
+    ageIntervalTo : state.wizardStep1.step1_ageIntervalTo
+  };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      _updateTextStep1Action: (newValue) => dispatch(updateTextStep1Action(newValue))
+      _updateGenderAction: (newValue) => dispatch(updateGenderAction(newValue)),
+      _updateAgeAction: (age, ageInterval, ageFrom, ageTo) => dispatch(updateAgeAction(age, ageInterval, ageFrom, ageTo))
   }
 }
 

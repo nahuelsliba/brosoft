@@ -1,6 +1,6 @@
 import {
 
-    UPDATE_DISPLAY_STEP3_REQUEST_ACTION
+    STEP3_UPDATE_DISPLAY_ACTION
 
 } from '../actions/types';
 
@@ -8,13 +8,13 @@ const MIN_VALUE = 1;
 const MAX_VALUE = 5;
 
 const step3InitialState = {    
-    display : { value : 1 }
+    step3_display : { value : 1 }
 }
 
 const wizardStep3 = (state = step3InitialState, action) => {
     switch (action.type) {
-        case UPDATE_DISPLAY_STEP3_REQUEST_ACTION:
-            return handleUpdateDisplayRequestAction(state, action);
+        case STEP3_UPDATE_DISPLAY_ACTION:
+            return handleUpdateDisplayAction(state, action);
 
         default:
             return state;
@@ -30,17 +30,17 @@ const canUpdate = (direction, itemToUpdate) => {
     }
 }
 
-const handleUpdateDisplayRequestAction = (state, action) => {
-    if (!canUpdate(action.data.direction, state.display) ) {
+const handleUpdateDisplayAction = (state, action) => {
+    if (!canUpdate(action.data.direction, state.step3_display) ) {
         return { ...state };
     }
 
-    const updatedDisplay = Object.assign({}, state.display);
+    const updatedDisplay = Object.assign({}, state.step3_display);
     updatedDisplay.value = action.data.direction === 1 ? 
         updatedDisplay.value + 1 : updatedDisplay.value - 1;
     return {
         ...state,
-        display : updatedDisplay
+        step3_display : updatedDisplay
     };
 }
 
