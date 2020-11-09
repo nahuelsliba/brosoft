@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 public class SearchResponseDto {
 
-	private List<SearchResponseProductDto> products;
+	private List<ProductDto> products;
 
 }
