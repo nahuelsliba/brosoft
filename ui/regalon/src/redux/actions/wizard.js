@@ -1,5 +1,7 @@
 import {
 
+    INITIAL_VIEW_REQUEST_ACTION,
+    INIT_WIZARD_REQUEST_ACTION,
     NEXT_STEP_REQUEST_ACTION,
     PREVIOUS_STEP_REQUEST_ACTION,    
     RESET_WIZARD_REQUEST_ACTION,
@@ -9,6 +11,14 @@ import {
     SEARCH_PRODUCTS_FAILURE_ACTION
 
 } from './types';
+
+export const initialViewAction = () => {
+    return { type: INITIAL_VIEW_REQUEST_ACTION } ;
+};
+
+export const initWizardAction = () => {
+    return { type: INIT_WIZARD_REQUEST_ACTION } ;
+};
 
 export const nextStepAction = () => {
     return { type: NEXT_STEP_REQUEST_ACTION } ;

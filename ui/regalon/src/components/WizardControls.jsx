@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { nextStepAction, previousStepAction, resetWizardAction } from '../redux/actions/wizard'; 
+import { nextStepAction, previousStepAction, resetWizardAction, initialViewAction } from '../redux/actions/wizard'; 
 import { searchProducts } from '../helpers/fetchers/wizardFetcher';
 
 function WizardControls({ 
     currentStep, showResultItems, 
-    _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts, 
+    _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts, _initialViewAction,
     step1State, step2State, step3State, step4State
   }) {
 
@@ -18,6 +18,11 @@ function WizardControls({
   const handleOnClickPrevious = () => {
     console.log('handleOnClickPrevious');
     _previousStepAction();
+  }
+
+  const handleOnClickInitialView = () => {
+    console.log('handleOnClickInitialView');
+    _initialViewAction();
   }
 
   const handleOnClickSearch = () => {
@@ -47,15 +52,18 @@ function WizardControls({
   
   return (    
     <div className="WizardControls clearfix text-center">      
+        {currentStep === 1 && !showResultItems && 
+        <Button variant="rgln-secondary" onClick={ handleOnClickInitialView } className="float-left" >Cancelar</Button> }
+
         {currentStep !== 5 && currentStep !== 1 && !showResultItems && 
-        <Button variant="secondary" onClick={ handleOnClickPrevious } className="float-left" >Atras</Button> }
+        <Button variant="rgln-secondary" onClick={ handleOnClickPrevious } className="float-left" >Atras</Button> }
         {currentStep !== 5 && !showResultItems &&  
-        <Button variant="success" onClick={ handleOnClickNext } className="float-right">Siguiente</Button> }
+        <Button variant="rgln-primary" onClick={ handleOnClickNext } className="float-right">Siguiente</Button> }
 
         {currentStep === 5 && !showResultItems && 
-        <Button variant="secondary" onClick={ handleOnClickReset } className="float-left" >Cancelar</Button> }
+        <Button variant="rgln-secondary" onClick={ handleOnClickReset } className="float-left" >Cancelar</Button> }
         {currentStep === 5 && !showResultItems && 
-        <Button variant="primary" onClick={ handleOnClickSearch } className="float-right" >Buscar </Button> }
+        <Button variant="rgln-primary" onClick={ handleOnClickSearch } className="float-right" >Buscar </Button> }
 
         {showResultItems && <Button variant="primary" onClick={ handleOnClickReset } >Nueva busqueda</Button> }
     </div>
@@ -76,6 +84,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+      _initialViewAction: () => dispatch(initialViewAction()),
       _nextStepAction: () => dispatch(nextStepAction()),
       _previousStepAction: () => dispatch(previousStepAction()),
       _resetWizardAction: () => dispatch(resetWizardAction()),

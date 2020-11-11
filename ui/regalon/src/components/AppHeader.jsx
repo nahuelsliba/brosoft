@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from '../img/regalon-logo.gif';
 
 function AppHeader() {
   return (    
     <header className="AppHeader"> 
-      <p> LOGO REGALON - Encuentra el regalo ideal</p> 
+      <div> <img class="logo" src={logo} /> </div>
     </header>
   );
 }

@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 
 function WizardProgressBar( {currentStep} ) {
   return (    
-    <div className="WizardProgressBar"> 
-      <span className={currentStep === 1 ? 'bold' : ''} > 1 </span>
-      - 
-      <span className={currentStep === 2 ? 'bold' : ''} > 2 </span>
-      - 
-      <span className={currentStep === 3 ? 'bold' : ''} > 3 </span>
-      - 
-      <span className={currentStep === 4 ? 'bold' : ''} > 4 </span>
-      - 
-      <span className={currentStep === 5 ? 'bold' : ''} > 5 </span>
+    <div class="WizardProgressBarCont cont100w">
+      <div className="WizardProgressBar"> 
+        <span className={currentStep === 1 ? 'bold underline' : ''} >&nbsp;1&nbsp;</span>
+        &nbsp;-&nbsp;
+        <span className={currentStep === 2 ? 'bold underline' : ''} >&nbsp;2&nbsp;</span>
+        &nbsp;-&nbsp;
+        <span className={currentStep === 3 ? 'bold underline' : ''} >&nbsp;3&nbsp;</span>
+        &nbsp;-&nbsp;
+        <span className={currentStep === 4 ? 'bold underline' : ''} >&nbsp;4&nbsp;</span>
+        &nbsp;-&nbsp;
+        <span className={currentStep === 5 ? 'bold underline' : ''} >&nbsp;5&nbsp;</span>
+      </div>
     </div>
   );
 }

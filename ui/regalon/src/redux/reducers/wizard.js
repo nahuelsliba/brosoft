@@ -1,5 +1,7 @@
 import {
 
+    INITIAL_VIEW_REQUEST_ACTION,
+    INIT_WIZARD_REQUEST_ACTION,
     NEXT_STEP_REQUEST_ACTION,
     PREVIOUS_STEP_REQUEST_ACTION,
     
@@ -12,7 +14,7 @@ import {
 } from '../actions/types';
 
 const wizardInitialState = {
-    currentStep : 1,
+    currentStep : 0,
     isSearchProudctsFetching : false,
     error : null,
     searchProudctsJson : {},
@@ -21,6 +23,10 @@ const wizardInitialState = {
 
 const wizard = (state = wizardInitialState, action) => {
     switch (action.type) {
+        case INITIAL_VIEW_REQUEST_ACTION:
+            return handleInitialViewRequestAction(state);
+        case INIT_WIZARD_REQUEST_ACTION:
+            return handleInitWizardRequestAction(state);
         case NEXT_STEP_REQUEST_ACTION:
             return handleNextStepRequestAction(state);
         case PREVIOUS_STEP_REQUEST_ACTION:
@@ -38,6 +44,20 @@ const wizard = (state = wizardInitialState, action) => {
         default:
             return state;
     }
+}
+
+const handleInitialViewRequestAction = (state) => {
+    return {
+        ...state,
+        currentStep : 0
+    };
+}
+
+const handleInitWizardRequestAction = (state) => {
+    return {
+        ...state,
+        currentStep : 1
+    };
 }
 
 const handleNextStepRequestAction = (state) => {
