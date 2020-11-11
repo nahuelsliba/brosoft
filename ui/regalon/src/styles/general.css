@@ -84,6 +84,13 @@ code {
     border-top: 3px solid var(--primary-b-color);
 }
 
+.AppFooterText {
+    width: 100%;
+    text-align: center;
+    margin: 15px 0px 0px 0px; 
+    /* margin: 0 auto; */
+}
+
 .logo {
     width: 150px;
     height: 50px;
@@ -170,6 +177,42 @@ code {
     border-color: var(--secondary-40-color);
 }
 
+.btn-rgln-display {
+    color: var(--primary-b-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-rgln-display:hover {
+    color: var(--primary-b-color);
+    background-color: var(--primary-40-color);
+    border-color: var(--primary-40-color);
+}
+
+.UpDownDisplay {
+    margin-bottom: 10px;
+}
+
+.UpDownDisplay button {
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.displayLabel {
+    width: 100px;
+    text-align: right;
+    margin-right: 15px;
+    padding-top: 8px;
+}
+
+.displayValue {
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 8px;
+}
+
 .topM50 {
     margin-top: 50px;
 }
@@ -181,3 +224,14 @@ code {
 .tAlignC {
     text-align: center;
 }
+
+.fGSelect select {
+    max-width: 250px;
+}
+
+.fGTextInputS input {
+    max-width: 75px;
+}
+
+
+

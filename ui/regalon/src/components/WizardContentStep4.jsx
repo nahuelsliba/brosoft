@@ -17,7 +17,7 @@ function WizardContentStep4( { amountFrom, amountTo, _updateAmountAction } ) {
     <div className="WizardContentStep4">
       <Form>          
         <Form.Label>Cuanto quiers gastar? </Form.Label>   
-        <Form.Group>                            
+        <Form.Group className="fGTextInputS">                            
           <Form.Label>Al menos: </Form.Label>     
           <Form.Control type="text" placeholder={amountFrom} onChange={handleOnChangeAmountFrom}/>
           <Form.Label>y no mas de: </Form.Label>     

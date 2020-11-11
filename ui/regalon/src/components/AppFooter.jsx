@@ -4,7 +4,7 @@ import { msg_footer_text1 } from '../i18n/translation';
 function AppFooter() {
   return (    
     <header className="AppFooter"> 
-      <div> {msg_footer_text1} </div>
+      <div class="AppFooterText"> {msg_footer_text1} </div>
     </header>
   );
 }

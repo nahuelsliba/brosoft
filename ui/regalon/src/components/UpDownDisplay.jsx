@@ -11,10 +11,10 @@ function UpDownDisplay( {id, label, display, handleOnClickFunction} ) {
   return (    
     <div className="UpDownDisplay">
       <ButtonGroup aria-label="Basic example">
-        <div> {label} </div>
-        <Button variant="secondary" onClick={ () => handleOnClick(-1) } >-</Button>
-        <div>  {display.value} </div>
-        <Button variant="secondary" onClick={ () => handleOnClick(1) } >+</Button>
+        <div class="displayLabel"> {label} </div>
+        <Button variant="rgln-display" onClick={ () => handleOnClick(-1) } >-</Button>
+        <div class="displayValue"> {display.value} </div>
+        <Button variant="rgln-display" onClick={ () => handleOnClick(1) } >+</Button>
       </ButtonGroup>
     </div>
   );

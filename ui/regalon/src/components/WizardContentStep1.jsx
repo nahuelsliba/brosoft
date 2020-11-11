@@ -53,7 +53,7 @@ function WizardContentStep1( { gender, age, ageInterval, ageIntervalFrom, ageInt
     <div className="WizardContentStep1">
     
       <Form>        
-        <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Group controlId="exampleForm.ControlSelect1" className="fGSelect">
           <Form.Label>El regalo es para: </Form.Label>
           <Form.Control as="select" onChange={handleOnChangeGender}>
             <option value="1">{ getGenderNameByCode("1") }</option>
@@ -64,7 +64,7 @@ function WizardContentStep1( { gender, age, ageInterval, ageIntervalFrom, ageInt
           </Form.Control>
         </Form.Group>       
         
-        <Form.Group>     
+        <Form.Group className="fGTextInputS">     
           <Form.Label>Que tiene tantos anios: </Form.Label>     
           <Form.Control type="text" placeholder="Edad" disabled={ageInterval} onChange={handleOnChangeAge}/>
         </Form.Group>        
@@ -72,7 +72,7 @@ function WizardContentStep1( { gender, age, ageInterval, ageIntervalFrom, ageInt
           <Form.Check type="checkbox" id="default-chackbox" label="No se la edad exacta." onChange={handleOnChangeAgeCheck} />
         </div>
         {ageInterval && 
-        <Form.Group>               
+        <Form.Group className="fGTextInputS">               
           <Form.Label>Al menos: </Form.Label>     
           <Form.Control type="text" placeholder="anios" onChange={handleOnChangeAgeIntervalFrom} />
           <Form.Label>y no mas de: </Form.Label>     
