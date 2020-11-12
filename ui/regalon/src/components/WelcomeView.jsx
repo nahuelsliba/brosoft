@@ -13,8 +13,8 @@ function WelcomeView( { _initWizardAction } ) {
 
   return (  
     <div className="WelcomeView"> 
-      <div class="topM50 cont100w"> {msg_initial_view_welcome} </div>
-      <div class="topM50 cont100w tAlignC"> <Button variant="rgln-primary" onClick={ handleOnClickBegin } >{msg_general_button_begin}</Button> </div>
+      <div className="topM50 cont100w"> {msg_initial_view_welcome} </div>
+      <div className="topM50 cont100w tAlignC"> <Button variant="rgln-primary" onClick={ handleOnClickBegin } >{msg_general_button_begin}</Button> </div>
     </div>   
   );
 }

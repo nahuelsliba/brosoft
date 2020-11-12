@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 function WizardProgressBar( {currentStep} ) {
   return (    
-    <div class="WizardProgressBarCont cont100w">
+    <div className="WizardProgressBarCont cont100w">
       <div className="WizardProgressBar"> 
         <span className={currentStep === 1 ? 'bold underline' : ''} >&nbsp;1&nbsp;</span>
         &nbsp;-&nbsp;

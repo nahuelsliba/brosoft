@@ -2,17 +2,31 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { nextStepAction, previousStepAction, resetWizardAction, initialViewAction } from '../redux/actions/wizard'; 
+import { step1ValidationErrorsAction, step1ClearValidationErrorsAction } from '../redux/actions/wizardStep1'; 
 import { searchProducts } from '../helpers/fetchers/wizardFetcher';
 
 function WizardControls({ 
     currentStep, showResultItems, 
     _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts, _initialViewAction,
+    _step1ValidationErrorsAction, _step1ClearValidationErrorsAction,
     step1State, step2State, step3State, step4State
   }) {
 
   const handleOnClickNext = () => {
-    console.log('handleOnClickNext');
-    _nextStepAction();
+    if (currentStep === 1) {
+      handleOnClickNextStep1();
+    } else {
+      _nextStepAction();
+    }
+  }
+
+  const handleOnClickNextStep1 = () => {
+    if (step1State.step1_validationFunction(step1State) === true) {
+      _step1ClearValidationErrorsAction();
+      _nextStepAction();
+    } else {
+      _step1ValidationErrorsAction();
+    }
   }
 
   const handleOnClickPrevious = () => {
@@ -89,6 +103,9 @@ const mapDispatchToProps = (dispatch) => {
       _previousStepAction: () => dispatch(previousStepAction()),
       _resetWizardAction: () => dispatch(resetWizardAction()),
       _searchProducts: (filters) => searchProducts(filters, dispatch),
+
+      _step1ValidationErrorsAction: () => dispatch(step1ValidationErrorsAction()),
+      _step1ClearValidationErrorsAction: () => dispatch(step1ClearValidationErrorsAction())
   }
 }
 

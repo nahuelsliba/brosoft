@@ -233,5 +233,21 @@ code {
     max-width: 75px;
 }
 
+.fGCheckboxInput input {
+    width: 20px;
+    height: 20px;
+}
 
+.fGCheckboxInput label {
+    padding: 2px 5px 0px 10px;
+    text-decoration: underline;
+}
+
+.fGCheckboxInput label:hover {
+    cursor: pointer;
+}
+
+.inputError {
+    border-color: red;
+}
 

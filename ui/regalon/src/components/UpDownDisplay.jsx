@@ -11,9 +11,9 @@ function UpDownDisplay( {id, label, display, handleOnClickFunction} ) {
   return (    
     <div className="UpDownDisplay">
       <ButtonGroup aria-label="Basic example">
-        <div class="displayLabel"> {label} </div>
+        <div className="displayLabel"> {label} </div>
         <Button variant="rgln-display" onClick={ () => handleOnClick(-1) } >-</Button>
-        <div class="displayValue"> {display.value} </div>
+        <div className="displayValue"> {display.value} </div>
         <Button variant="rgln-display" onClick={ () => handleOnClick(1) } >+</Button>
       </ButtonGroup>
     </div>

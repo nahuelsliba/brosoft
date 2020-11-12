@@ -4,7 +4,7 @@ import logo from '../img/regalon-logo.gif';
 function AppHeader() {
   return (    
     <header className="AppHeader"> 
-      <div> <img class="logo" src={logo} /> </div>
+      <div> <img className="logo" src={logo} /> </div>
     </header>
   );
 }
