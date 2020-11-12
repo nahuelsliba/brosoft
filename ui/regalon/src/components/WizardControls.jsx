@@ -3,18 +3,21 @@ import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { nextStepAction, previousStepAction, resetWizardAction, initialViewAction } from '../redux/actions/wizard'; 
 import { step1ValidationErrorsAction, step1ClearValidationErrorsAction } from '../redux/actions/wizardStep1'; 
+import { step4ValidationErrorsAction, step4ClearValidationErrorsAction } from '../redux/actions/wizardStep4'; 
 import { searchProducts } from '../helpers/fetchers/wizardFetcher';
 
 function WizardControls({ 
     currentStep, showResultItems, 
     _nextStepAction, _previousStepAction, _resetWizardAction, _searchProducts, _initialViewAction,
-    _step1ValidationErrorsAction, _step1ClearValidationErrorsAction,
+    _step1ValidationErrorsAction, _step1ClearValidationErrorsAction, _step4ValidationErrorsAction, _step4ClearValidationErrorsAction,
     step1State, step2State, step3State, step4State
   }) {
 
   const handleOnClickNext = () => {
     if (currentStep === 1) {
       handleOnClickNextStep1();
+    } else if (currentStep === 4) {
+      handleOnClickNextStep4();
     } else {
       _nextStepAction();
     }
@@ -26,6 +29,15 @@ function WizardControls({
       _nextStepAction();
     } else {
       _step1ValidationErrorsAction();
+    }
+  }
+
+  const handleOnClickNextStep4 = () => {
+    if (step4State.step4_validationFunction(step4State) === true) {
+      _step4ClearValidationErrorsAction();
+      _nextStepAction();
+    } else {
+      _step4ValidationErrorsAction();
     }
   }
 
@@ -105,7 +117,9 @@ const mapDispatchToProps = (dispatch) => {
       _searchProducts: (filters) => searchProducts(filters, dispatch),
 
       _step1ValidationErrorsAction: () => dispatch(step1ValidationErrorsAction()),
-      _step1ClearValidationErrorsAction: () => dispatch(step1ClearValidationErrorsAction())
+      _step1ClearValidationErrorsAction: () => dispatch(step1ClearValidationErrorsAction()),
+      _step4ValidationErrorsAction: () => dispatch(step4ValidationErrorsAction()),
+      _step4ClearValidationErrorsAction: () => dispatch(step4ClearValidationErrorsAction())
   }
 }
 

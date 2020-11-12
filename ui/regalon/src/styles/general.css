@@ -231,6 +231,7 @@ code {
 
 .fGTextInputS input {
     max-width: 75px;
+    text-align: right;
 }
 
 .fGCheckboxInput input {

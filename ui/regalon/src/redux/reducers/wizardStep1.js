@@ -4,11 +4,13 @@ import {
 
 } from '../actions/types';
 
+import { isEmpty } from '../../helpers/validationHelper';
+
 const validationFunction = function (currentState) {
     if (currentState.step1_ageInterval === false) {
-        return currentState.step1_age !== null;
-    } else if (currentState.step1_ageIntervalFrom === null || 
-            currentState.step1_ageIntervalTo === null) {
+        return !isEmpty(currentState.step1_age);
+    } else if ( isEmpty(currentState.step1_ageIntervalFrom) || 
+               isEmpty(currentState.step1_ageIntervalTo) ) {
         return false;
     }
     return (currentState.step1_ageIntervalFrom < currentState.step1_ageIntervalTo);
@@ -67,11 +69,11 @@ const handleValidationErrorsAction = (state) => {
 
     if (state.step1_ageInterval === false) {
         ageClass = 'inputError';
-    } else if ( (state.step1_ageIntervalFrom !== null && state.step1_ageIntervalTo !== null) || 
-                (state.step1_ageIntervalFrom === null && state.step1_ageIntervalTo === null) ) {
+    } else if ( (isEmpty(state.step1_ageIntervalFrom) && isEmpty(state.step1_ageIntervalTo)) || 
+                (!isEmpty(state.step1_ageIntervalFrom) && !isEmpty(state.step1_ageIntervalTo)) ) {
         ageIntervalFromClass = 'inputError';
         ageIntervalToClass = 'inputError';
-    } else if (state.step1_ageIntervalFrom === null) {
+    } else if (isEmpty(state.step1_ageIntervalFrom)) {
         ageIntervalFromClass = 'inputError';
     } else {
         ageIntervalToClass = 'inputError';

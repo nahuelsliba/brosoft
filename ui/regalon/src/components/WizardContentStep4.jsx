@@ -2,15 +2,20 @@ import React from 'react';
 import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { updateAmountAction } from '../redux/actions/wizardStep4';
+import { validOnlyNumbers } from '../helpers/validationHelper';
 
-function WizardContentStep4( { amountFrom, amountTo, _updateAmountAction } ) {
+function WizardContentStep4( { amountFrom, amountFromClass, amountTo, amountToClass, _updateAmountAction } ) {
 
   const handleOnChangeAmountFrom = (input) => {
-    _updateAmountAction(input.target.value, amountTo);
+    if (validOnlyNumbers(input)) {
+      _updateAmountAction(input.target.value, amountTo);
+    }
   }
 
   const handleOnChangeAmountTo = (input) => {
-    _updateAmountAction(amountFrom, input.target.value);
+    if (validOnlyNumbers(input)) {
+      _updateAmountAction(amountFrom, input.target.value);
+    }
   }
 
   return (
@@ -19,9 +24,11 @@ function WizardContentStep4( { amountFrom, amountTo, _updateAmountAction } ) {
         <Form.Label>Cuanto quiers gastar? </Form.Label>   
         <Form.Group className="fGTextInputS">                            
           <Form.Label>Al menos: </Form.Label>     
-          <Form.Control type="text" placeholder={amountFrom} onChange={handleOnChangeAmountFrom}/>
+          <Form.Control type="text" placeholder={amountFrom} value={amountFrom} className={amountFromClass}
+            onChange={handleOnChangeAmountFrom} maxLength="4" />
           <Form.Label>y no mas de: </Form.Label>     
-          <Form.Control type="text" placeholder={amountTo} onChange={handleOnChangeAmountTo} />
+          <Form.Control type="text" placeholder={amountTo} value={amountTo} className={amountToClass}
+          onChange={handleOnChangeAmountTo} maxLength="4" />
         </Form.Group>
       </Form>
     </div>
@@ -31,7 +38,9 @@ function WizardContentStep4( { amountFrom, amountTo, _updateAmountAction } ) {
 const mapStateToProps = (state) => {  
   return { 
     amountFrom : state.wizardStep4.step4_amountFrom, 
-    amountTo : state.wizardStep4.step4_amountTo
+    amountFromClass : state.wizardStep4.step4_amountFromClass, 
+    amountTo : state.wizardStep4.step4_amountTo,
+    amountToClass : state.wizardStep4.step4_amountToClass
   };
 }
 

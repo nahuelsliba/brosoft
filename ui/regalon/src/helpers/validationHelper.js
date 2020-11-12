@@ -6,3 +6,9 @@ export const validOnlyNumbers = (input) => {
     input.target.value = input.target.value.slice(0, -1);
     return false;
 }
+
+export const isEmpty = (value) => {
+    return  value === null ||
+            value === undefined ||
+            value === '';
+}
