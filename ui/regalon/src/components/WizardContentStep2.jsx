@@ -7,10 +7,11 @@ function WizardContentStep2( { availablePoints, displays, _updateDisplayStep2Act
 
   return (
     <div className="WizardContentStep2">
-      <p> Cómo es la persona? {availablePoints} </p>
+      <p> Cuentanos como es la persona distribuyendo 15 puntos en estas tres cualidades: </p>
       <UpDownDisplay label="Creativa" id="0" display={displays['0']} handleOnClickFunction={_updateDisplayStep2Action} />
       <UpDownDisplay label="Deportista" id="1" display={displays['1']} handleOnClickFunction={_updateDisplayStep2Action} />
       <UpDownDisplay label="Intelectual" id="2" display={displays['2']} handleOnClickFunction={_updateDisplayStep2Action} />
+      <p className="topM25">Puntos disponibles: <b>{availablePoints}</b></p>
     </div>
   );
 }

@@ -21,7 +21,7 @@ function WizardContentStep4( { amountFrom, amountFromClass, amountTo, amountToCl
   return (
     <div className="WizardContentStep4">
       <Form>          
-        <Form.Label>Cuanto quiers gastar? </Form.Label>   
+        <Form.Label>Cuantos euros quieres gastar? </Form.Label>   
         <Form.Group className="fGTextInputS">                            
           <Form.Label>Al menos: </Form.Label>     
           <Form.Control type="text" placeholder={amountFrom} value={amountFrom} className={amountFromClass}
