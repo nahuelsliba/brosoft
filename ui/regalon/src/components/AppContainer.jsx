@@ -3,6 +3,7 @@ import Wizard from './Wizard';
 import WelcomeView from './WelcomeView';
 import AppHeader from './AppHeader.jsx';
 import AppFooter from './AppFooter.jsx';
+import TermsAndConditions from './TermsAndConditions.jsx';
 import { Container, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
@@ -17,6 +18,7 @@ function AppContainer( {currentStep} ) {
         </div>
       </Row>
       <Row> <AppFooter/> </Row>
+      <TermsAndConditions/>      
     </Container>
   );
 }

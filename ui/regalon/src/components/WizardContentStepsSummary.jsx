@@ -29,19 +29,23 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
   }
 
   const getPersonalityText = (creativity, sporty, intellectual) => {
-    let distUmbral = 2;
+    let distUmbral = 2;    
     var dist1 = Math.abs(creativity - sporty);
     var dist2 = Math.abs(creativity - intellectual);
     var dist3 = Math.abs(sporty - intellectual);
     if (dist1 < distUmbral && dist2 < distUmbral && dist3 < distUmbral) {
-      return 'multifacetica';
+      let minPointsUmbral = 10;
+      if (creativity + sporty + intellectual < minPointsUmbral) {
+        return ' no lo se';
+      }
+      return ' multifacetica';
     }
 
-    var personality = 'creativa';
+    var personality = ' creativa';
     if (sporty > creativity && sporty > intellectual) {
-      personality = 'sporty';
+      personality = ' sporty';
     } else if (intellectual > creativity && intellectual > sporty) {
-      personality = 'intellectual';
+      personality = ' intellectual';
     }
     return personality;
   }

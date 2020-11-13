@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from "redux";
+import general from "./reducers/general";
 import wizard from "./reducers/wizard";
 import wizardStep1 from "./reducers/wizardStep1";
 import wizardStep2 from "./reducers/wizardStep2";
@@ -6,6 +7,7 @@ import wizardStep3 from "./reducers/wizardStep3";
 import wizardStep4 from "./reducers/wizardStep4";
 
 const rootReducer = combineReducers({
+    general : general,
     wizard : wizard,
     wizardStep1: wizardStep1,
     wizardStep2: wizardStep2,

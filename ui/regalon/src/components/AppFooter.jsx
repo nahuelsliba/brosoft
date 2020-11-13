@@ -1,12 +1,31 @@
 import React from 'react';
 import { msg_footer_text1 } from '../i18n/translation';
+import { connect } from 'react-redux';
+import { showTermsAndConditionsAction } from '../redux/actions/general';
 
-function AppFooter() {
+function AppFooter( { _showTermsAndConditionsAction } ) {
+
+  const showTermsAndConditions = () => {
+    _showTermsAndConditionsAction();
+  }
+
   return (    
     <header className="AppFooter"> 
-      <div className="AppFooterText"> {msg_footer_text1} </div>
+      <div className="AppFooterText"> {msg_footer_text1} <a href="#" onClick={showTermsAndConditions}>Terminos y Condiciones</a> </div>
     </header>
   );
 }
 
-export default AppFooter;
+/*
+const mapStateToProps = (state) => {  
+  return { show : state.general.termsAndConditionsShowing };
+}
+*/
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    _showTermsAndConditionsAction: () => dispatch(showTermsAndConditionsAction())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AppFooter);
