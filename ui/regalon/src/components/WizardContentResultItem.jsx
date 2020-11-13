@@ -1,15 +1,15 @@
 import React from 'react';
 
-function WizardContentResultItem( {imgUrl, title, price, description} ) {
+function WizardContentResultItem( {url, imgUrl, title, price, description} ) {
   return (    
     <div className="WizardContentResultItem"> 
       <table>
         <tr> 
           <td className="wizardItem11C"> 
-            <div className="wizardItemImg"> <img className="" src={imgUrl} /> </div>            
+            <div className="wizardItemImg"> <a href={url} target="_blank"><img className="" src={imgUrl} /></a> </div>            
           </td>
           <td className="wizardItem12C">  
-            <div className="wizardItemTitle"> {title} </div>
+            <div className="wizardItemTitle"> <a href={url} target="_blank">{title}</a> </div>
             <div className="wizardItemPrice"> {price} € </div>
           </td>
         </tr>

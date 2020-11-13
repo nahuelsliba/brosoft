@@ -16,7 +16,8 @@ function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
     <div className="WizardContentResult">
       {products.map((product) =>
         <WizardContentResultItem 
-          key={product.url} 
+          key={product.id} 
+          url={product.url} 
           imgUrl={product.imgUrl} 
           title={product.title} 
           price={product.price} 
