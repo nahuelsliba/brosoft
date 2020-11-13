@@ -10,8 +10,7 @@ function Wizard({ showResultItems }) {
   
   return (    
     <div className="Wizard">
-      {!showResultItems && <WizardProgressBar /> }
-      {showResultItems && <WizardContentResultFilters /> }
+      {!showResultItems && <WizardProgressBar /> }     
 
       {!showResultItems && <WizardContent /> }
       {showResultItems && <WizardContentResult /> }

@@ -4,9 +4,11 @@
   --primary-40-color: #9228A4;
   --primary-80-color: #BA50CC;
   --primary-100-color: #CE64E0;
+  --primary-200-color: #FFF5FF;
   
   --secondary-color: #4c4c4c;
   --secondary-40-color: #747474;  
+  --secondary-100-color: #E0E0E0;  
 
   --primary-b-color: #F9F9F9;
 }
@@ -56,7 +58,8 @@ code {
 .AppContainer {
     /* border: 1px solid var(--primary-color); */
     background-color: var(--primary-80-color);
-    height: 95%;
+    height: 100%;
+    padding-bottom: 80px;
 }
 
 .AppHeader {
@@ -71,7 +74,20 @@ code {
 .AppContainerRowCenter {
     /* border: 1px solid blue; */
     background-color: var(--primary-color);
-    height: 80%;
+    height: 100%;
+    padding-bottom: 60px;
+}
+
+.AppContainerCenter {
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--primary-b-color);
+    padding: 0px 15px 5px 15px;
+
+    /* border: 1px solid gray; */
 }
 
 .AppFooter {
@@ -82,6 +98,8 @@ code {
     height: 80px;
     background-color: var(--primary-20-color);
     border-top: 3px solid var(--primary-b-color);
+    position: fixed;
+    bottom: 0;
 }
 
 .AppFooterText {
@@ -98,25 +116,17 @@ code {
     margin: 3px 15px 0px 15px; 
 }
 
-.AppContainerCenter {
-    width: 100%;
-    min-width: 320px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: var(--primary-b-color);
-
-    /* border: 1px solid gray; */
-}
-
 .WelcomeView {
-    margin: 5px 15px 0px 15px; 
+    width: 100%;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
 }
 
 .Wizard {
     /* border: 1px solid red; */
-    height: 95%;
+    height: 99%;
     position: relative;   
-    margin: 0px 15px 0px 15px; 
+    margin: 0px 0px 0px 0px;
 }
 
 .WizardProgressBarCont {
@@ -233,6 +243,18 @@ code {
     margin: 0 auto;
 }
 
+.elInlineBlock {
+    display: inline-block;
+}
+
+.elFloatL {
+    float: left;
+}
+
+.elFloatR {
+    float: right;
+}
+
 .fGSelect select {
     max-width: 250px;
 }
@@ -260,3 +282,56 @@ code {
     border-color: red;
 }
 
+.WizardContentResult {
+    height: 100%;
+    overflow-y: auto;
+    /* padding-bottom: 40px; */
+}
+
+.WizardContentResultItem {
+    margin: 0px 0px 10px 0px; 
+    background-color: var(--primary-200-color);    
+    border-top: 1px solid var(--secondary-100-color);    
+}
+
+.wizardItemImg {
+    margin: 4px 0px 0px 0px; 
+}
+
+.wizardItemImg img {
+    width: 50px;
+    height: 50px;
+
+    margin: 0px 15px 0px 0px; 
+}
+
+.wizardItemTitle {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 98%;
+}
+
+.wizardItemPrice {
+    font-weight: bold;
+    opacity: 0.85;
+}
+
+.wizardItemDesc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.wizardItem11C {
+    vertical-align: top;
+}
+
+.wizardItem12C {
+    display: inline-grid;
+}

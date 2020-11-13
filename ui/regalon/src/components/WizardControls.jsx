@@ -89,9 +89,7 @@ function WizardControls({
         {currentStep === 5 && !showResultItems && 
         <Button variant="rgln-secondary" onClick={ handleOnClickReset } className="float-left" >Cancelar</Button> }
         {currentStep === 5 && !showResultItems && 
-        <Button variant="rgln-primary" onClick={ handleOnClickSearch } className="float-right" >Buscar </Button> }
-
-        {showResultItems && <Button variant="primary" onClick={ handleOnClickReset } >Nueva busqueda</Button> }
+        <Button variant="rgln-primary" onClick={ handleOnClickSearch } className="float-right" >Buscar </Button> }        
     </div>
   );
 }

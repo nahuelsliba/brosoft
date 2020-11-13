@@ -10,9 +10,9 @@ function AppFooter( { _showTermsAndConditionsAction } ) {
   }
 
   return (    
-    <header className="AppFooter"> 
+    <div className="AppFooter"> 
       <div className="AppFooterText"> {msg_footer_text1} <a href="#" onClick={showTermsAndConditions}>Terminos y Condiciones</a> </div>
-    </header>
+    </div>
   );
 }
 
