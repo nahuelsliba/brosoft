@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { 
+  msg_wizard_summary_text1, msg_wizard_summary_text2
+} from '../i18n/translation';
 
 function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom, ageIntervalTo, 
   creativity, sporty, intellectual, reliability, amountFrom, amountTo } ) {
@@ -50,7 +53,7 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
     return personality;
   }
 
-  const getreliabilityText = (reliability) => {
+  const getReliabilityText = (reliability) => {
     switch (reliability) {
       case 1:
         return ' muy poca confianza';
@@ -74,14 +77,14 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
   return (
     <div className="WizardContentStepsSummary">
       <p> 
-          El regalo es para 
+          {msg_wizard_summary_text1}
           {getGenderText(gender)}, 
           {getAgeText(age, ageInterval, ageIntervalFrom, ageIntervalTo)}
           {getPersonalityText(creativity, sporty, intellectual)}
-          {getreliabilityText(reliability)}
+          {getReliabilityText(reliability)}
           {getAmountText(amountFrom, amountTo)}
       </p>
-      <p> Haz click en Buscar y te ayudaremos a encontrar el regalo ideal! </p>
+      <p> {msg_wizard_summary_text2} </p>
     </div>
   );
 }

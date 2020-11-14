@@ -10,7 +10,7 @@ function WizardContentResultItem( {url, imgUrl, title, price, description} ) {
           </td>
           <td className="wizardItem12C">  
             <div className="wizardItemTitle"> <a href={url} target="_blank">{title}</a> </div>
-            <div className="wizardItemPrice"> {price} € </div>
+            <div className="wizardItemPrice"> <span>{price} €</span> (precio apróximado)</div>
           </td>
         </tr>
         <tr>

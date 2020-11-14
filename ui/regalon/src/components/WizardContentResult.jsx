@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import WizardContentResultItem from './WizardContentResultItem';
 import { resetWizardAction } from '../redux/actions/wizard'; 
+import { 
+  msg_general_button_new_search
+} from '../i18n/translation';
 
 function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
 
@@ -26,7 +29,7 @@ function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
       )}
       <div> 
         <div className="elInlineBlock elFloatL"> <a href="#"> Ver mas </a> </div>
-        <div className="elInlineBlock elFloatR"> <a href="#" onClick={handleOnClickReset}> Nueva busqueda </a> </div>
+        <div className="elInlineBlock elFloatR"> <a href="#" onClick={handleOnClickReset}> {msg_general_button_new_search} </a> </div>
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
 import React from 'react';
-import { msg_footer_text1 } from '../i18n/translation';
 import { Modal, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { hideTermsAndConditionsAction } from '../redux/actions/general';
+import { 
+  msg_general_button_close, msg_terms_conditions_title, msg_terms_conditions_body_text1 
+} from '../i18n/translation';
 
 function TermsAndConditions( {show, _hideTermsAndConditionsAction} ) {
 
@@ -13,21 +15,15 @@ function TermsAndConditions( {show, _hideTermsAndConditionsAction} ) {
   return (    
     <Modal show={show} onHide={hideTermsAndConditions}>
       <Modal.Header closeButton >
-        <Modal.Title>Regalon - Terminos y Condiciones</Modal.Title>
+        <Modal.Title>{msg_terms_conditions_title}</Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
-        <p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum 
-        </p>
+        <p>{msg_terms_conditions_body_text1}</p>
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="rgln-secondary" className="elAutoM" onClick={hideTermsAndConditions}>Cerrar</Button>
+        <Button variant="rgln-secondary" className="elAutoM" onClick={hideTermsAndConditions}>{msg_general_button_close}</Button>
       </Modal.Footer>
     </Modal>
   );

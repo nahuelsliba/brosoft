@@ -3,6 +3,10 @@ import { Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { updateGenderAction, updateAgeAction } from '../redux/actions/wizardStep1';
 import { validOnlyNumbers } from '../helpers/validationHelper';
+import { 
+  msg_wizard_step1_gender_label, msg_wizard_step1_age_label,
+  msg_wizard_step1_age_interval_label, msg_wizard_step1_age_interval_from_label, msg_wizard_step1_age_interval_to_label
+} from '../i18n/translation';
 
 function WizardContentStep1( { gender, age, ageClass, ageInterval, ageIntervalFrom, ageIntervalFromClass, 
     ageIntervalTo, ageIntervalToClass, _updateGenderAction, _updateAgeAction } ) {
@@ -62,31 +66,29 @@ function WizardContentStep1( { gender, age, ageClass, ageInterval, ageIntervalFr
     
       <Form>        
         <Form.Group controlId="exampleForm.ControlSelect1" className="fGSelect">
-          <Form.Label>El regalo es para: </Form.Label>
+          <Form.Label>{msg_wizard_step1_gender_label}</Form.Label>
           <Form.Control as="select" onChange={handleOnChangeGender}>
             <option value="1">{ getGenderNameByCode("1") }</option>
             <option value="2">{ getGenderNameByCode("2") }</option>
-            <option value="3">{ getGenderNameByCode("3") }</option>
-            <option value="4">{ getGenderNameByCode("4") }</option>
             <option value="7">{ getGenderNameByCode("7") }</option>
           </Form.Control>
         </Form.Group>       
         
         <Form.Group className="fGTextInputS">     
-          <Form.Label>Que tiene tantos anios: </Form.Label>     
+          <Form.Label>{msg_wizard_step1_age_label}</Form.Label>     
           <Form.Control type="text" placeholder="Edad" maxLength="2" className={ageClass}
             disabled={ageInterval} onChange={handleOnChangeAge} value={age}/>
         </Form.Group>        
         <div key="default-checkbox" className="mb-3">          
           <Form.Check className="fGCheckboxInput" type="checkbox" id="default-checkbox" checked={ageInterval}
-            label="No se la edad exacta" onChange={handleOnChangeAgeCheck} />
+            label={msg_wizard_step1_age_interval_label} onChange={handleOnChangeAgeCheck} />
         </div>
         {ageInterval && 
         <Form.Group className="fGTextInputS">               
-          <Form.Label>Al menos: </Form.Label>     
+          <Form.Label>{msg_wizard_step1_age_interval_from_label}</Form.Label>     
           <Form.Control type="text" placeholder="anios" maxLength="2" value={ageIntervalFrom}
             onChange={handleOnChangeAgeIntervalFrom} className={ageIntervalFromClass}/>
-          <Form.Label>y no mas de: </Form.Label>     
+          <Form.Label>{msg_wizard_step1_age_interval_to_label}</Form.Label>     
           <Form.Control type="text" placeholder="anios" maxLength="2" value={ageIntervalTo}
             onChange={handleOnChangeAgeIntervalTo} className={ageIntervalToClass}/>
         </Form.Group>

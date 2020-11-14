@@ -34,8 +34,10 @@ code {
 }
 
 #root {
- /* background-color: bisque;   */
- height: 100%;
+     /* background-color: bisque;   */
+    height: 100%;
+    background-image: url('../img/bg-gifts.png');
+    /*  background-size: 125px 125px; */
 }
 
 .col {
@@ -57,7 +59,7 @@ code {
 
 .AppContainer {
     /* border: 1px solid var(--primary-color); */
-    background-color: var(--primary-80-color);
+    /* background-color: var(--primary-80-color); */    
     height: 100%;
     padding-bottom: 80px;
 }
@@ -105,8 +107,14 @@ code {
 .AppFooterText {
     width: 100%;
     text-align: center;
-    margin: 15px 0px 0px 0px; 
+    margin: 12px 0px 0px 0px; 
     /* margin: 0 auto; */
+}
+
+.AppFooterText a {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--primary-b-color);
 }
 
 .logo {
@@ -293,8 +301,13 @@ code {
     /* padding-bottom: 40px; */
 }
 
+.WizardContentResult a {
+    color: var(--primary-20-color);
+}
+
 .WizardContentResultItem {
     margin: 0px 0px 10px 0px; 
+    padding-top: 5px;
     background-color: var(--primary-200-color);    
     border-top: 1px solid var(--secondary-100-color);    
 }
@@ -315,11 +328,17 @@ code {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 98%;
+    margin-top: 2px;
 }
 
 .wizardItemPrice {
-    font-weight: bold;
     opacity: 0.85;
+    margin-top: 3px;
+}
+
+.wizardItemPrice span {    
+    font-weight: bold;
+    margin-right: 8px;
 }
 
 .wizardItemDesc {
@@ -330,6 +349,7 @@ code {
     -webkit-box-orient: vertical;
     font-size: 14px;
     text-align: justify;
+    opacity: 0.9;
 }
 
 .wizardItem11C {

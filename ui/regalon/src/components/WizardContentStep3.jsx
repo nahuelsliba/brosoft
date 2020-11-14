@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateDisplayStep3Action } from '../redux/actions/wizardStep3';
 import UpDownDisplay from './UpDownDisplay';
+import { 
+  msg_wizard_step3_text1, msg_wizard_step3_reliability_label
+} from '../i18n/translation';
 
 function WizardContentStep3( { _display, _updateDisplayStep3Action } ) {
 
@@ -12,8 +15,8 @@ function WizardContentStep3( { _display, _updateDisplayStep3Action } ) {
 
   return (
     <div className="WizardContentStep3">
-      <p> Del 1 (baja) al 5 (alta), cual es tu nivel de confianza con la persona? </p>
-      <UpDownDisplay label="Confianza" id="0" display={_display} handleOnClickFunction={_updateDisplayStep3Action} />
+      <p> {msg_wizard_step3_text1} </p>
+      <UpDownDisplay label={msg_wizard_step3_reliability_label} id="0" display={_display} handleOnClickFunction={_updateDisplayStep3Action} />
     </div>
   );
 }
