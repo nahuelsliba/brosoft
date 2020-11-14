@@ -14,9 +14,9 @@ const validationFunction = function (currentState) {
 }
 
 const step4InitialState = {
-    step4_amountFrom : 0,
+    step4_amountFrom : 1,
     step4_amountFromClass : '',
-    step4_amountTo : 20,
+    step4_amountTo : 50,
     step4_amountToClass : '',
     step4_validationError : false,
     step4_validationFunction : validationFunction

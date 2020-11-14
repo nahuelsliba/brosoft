@@ -11,7 +11,7 @@ function AppFooter( { _showTermsAndConditionsAction } ) {
 
   return (    
     <div className="AppFooter"> 
-      <div className="AppFooterText"> {msg_footer_text1} <br></br><a href="#" onClick={showTermsAndConditions}>{msg_general_label_terms_conditions}</a> </div>
+      <div className="AppFooterText"> {msg_footer_text1} <a href="#" onClick={showTermsAndConditions}>{msg_general_label_terms_conditions}</a> </div>
     </div>
   );
 }
