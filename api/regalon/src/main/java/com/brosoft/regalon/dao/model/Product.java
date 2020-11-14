@@ -21,5 +21,12 @@ public class Product {
 	private String url;
 	private String imgUrl;
 	private BigDecimal price;
-
+	
+	private Character filterGender;
+	private Integer filterAge;
+	private Integer filterCreativity;
+	private Integer filterSporty;
+	private Integer filterIntellectual;
+	private Integer filterReliability;
+	
 }

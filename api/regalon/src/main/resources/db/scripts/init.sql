@@ -11,17 +11,19 @@ CREATE SEQUENCE hibernate_sequence
 
 ALTER TABLE hibernate_sequence OWNER TO regalon;
 
--- Table: public.product
-
--- DROP TABLE public.product;
-
 CREATE TABLE public.product (
     id bigint NOT NULL,
-    title character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    description character varying(512) COLLATE pg_catalog."default",
+    title character varying(512) COLLATE pg_catalog."default" NOT NULL,
+    description character varying(2048) COLLATE pg_catalog."default",
     url character varying(512) COLLATE pg_catalog."default" NOT NULL,
     img_url character varying(512) COLLATE pg_catalog."default",
     price numeric,
+    filter_gender character(1) COLLATE pg_catalog."default",
+    filter_age integer,
+    filter_creativity integer,
+    filter_sporty integer,
+    filter_intellectual integer,
+    filter_reliability integer,
     CONSTRAINT product_pkey PRIMARY KEY (id)
 )
 

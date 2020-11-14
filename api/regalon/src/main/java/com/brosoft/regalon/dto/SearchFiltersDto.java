@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class SearchFiltersDto {
 
-	private Integer gender;
+	private Character gender;
 
 	private Integer age;
 	private Boolean ageInterval;
