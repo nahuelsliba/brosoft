@@ -339,9 +339,13 @@ code {
     margin-top: 3px;
 }
 
-.wizardItemPrice span {    
+.wizardItemPriceValue {    
     font-weight: bold;
     margin-right: 8px;
+}
+
+.wizardItemPriceLabel {    
+    font-size: 14px;
 }
 
 .wizardItemDesc {

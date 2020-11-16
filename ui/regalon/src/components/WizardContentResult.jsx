@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import WizardContentResultItem from './WizardContentResultItem';
 import { resetWizardAction } from '../redux/actions/wizard'; 
@@ -8,16 +8,30 @@ import {
 
 function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
 
+  const PAGE_ITEMS = 5;
+
+  const [visibleProducts, setVisibleProducts] = useState(searchProudctsJson.products.slice(0, PAGE_ITEMS));
+  const [page, setPage] = useState(1);
+
+  const isThereMoreItems = (currentPage) => {
+    return searchProudctsJson.products.length > currentPage * PAGE_ITEMS;
+  }
+  const [moreItems, setMoreItems] = useState(isThereMoreItems(1));
+
   const handleOnClickReset = () => {
-    console.log('handleOnClickReset');
     _resetWizardAction();
   }
 
-  const products = searchProudctsJson.products;
+  const loadMoreProducts = () => {
+    let nextPage = page + 1;
+    setVisibleProducts(searchProudctsJson.products.slice(0, nextPage * PAGE_ITEMS));
+    setPage(nextPage);
+    setMoreItems(isThereMoreItems(nextPage));    
+  }
 
   return (    
     <div className="WizardContentResult">
-      {products.map((product) =>
+      {visibleProducts.map((product) =>
         <WizardContentResultItem 
           key={product.id} 
           url={product.url} 
@@ -28,7 +42,7 @@ function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
         />
       )}
       <div> 
-        <div className="elInlineBlock elFloatL"> <a href="#"> Ver mas </a> </div>
+        <div className="elInlineBlock elFloatL"> {moreItems && <a href="#" onClick={loadMoreProducts}> Ver mas </a>} </div>
         <div className="elInlineBlock elFloatR"> <a href="#" onClick={handleOnClickReset}> {msg_general_button_new_search} </a> </div>
       </div>
     </div>
