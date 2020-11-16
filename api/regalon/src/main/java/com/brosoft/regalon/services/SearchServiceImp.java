@@ -1,6 +1,7 @@
 package com.brosoft.regalon.services;
 
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -34,6 +35,11 @@ public class SearchServiceImp implements SearchService {
 		List<ProductDto> productsDto = products.stream().filter(product -> this.filterProduct(product, searchFilters))
 				.map(productMapper::entityToDto).collect(Collectors.toList());
 
+		if (productsDto.size() < 5) {
+			productsDto = products.stream().map(productMapper::entityToDto).collect(Collectors.toList());
+			Collections.shuffle(productsDto);
+		}
+
 		response.setProducts(productsDto);
 
 		return response;
@@ -48,8 +54,16 @@ public class SearchServiceImp implements SearchService {
 	private boolean filterByPrice(BigDecimal productPrice, BigDecimal priceFrom, BigDecimal priceTo) {
 		return productPrice.compareTo(priceFrom) > 0 && productPrice.compareTo(priceTo) < 0;
 	}
+	
+	private boolean filterByGender(Character productGender, Character filterGender) {
+		return productGender == null || filterGender == '3' || productGender == filterGender;
+	}
 
 	private boolean filterByAge(final Product product, final SearchFiltersDto searchFilters) {
+		if (product.getFilterAge() == null) {
+			return true;
+		}
+		
 		Integer ageFrom;
 		Integer ageTo;
 		if (searchFilters.getAgeInterval()) {
@@ -63,20 +77,18 @@ public class SearchServiceImp implements SearchService {
 		return ageFrom.compareTo(product.getFilterAge()) < 0 && ageTo.compareTo(product.getFilterAge()) > 0;
 	}
 
-	private boolean filterByGender(Character productGender, Character filterGender) {
-		return filterGender == '3' || productGender == filterGender;
-	}
-
 	/*
-	private boolean filterByReliability(Integer productReliability, Integer filterReliability) {
-		return filterReliability.compareTo(productReliability) > 0;
-	}
-
-	private boolean filterByPersonality(final Product product, final SearchFiltersDto searchFilters) {
-		return searchFilters.getCreativity().compareTo(product.getFilterCreativity()) < 0
-				&& searchFilters.getSporty().compareTo(product.getFilterSporty()) < 0
-				&& searchFilters.getIntellectual().compareTo(product.getFilterIntellectual()) < 0;
-	}
-	*/
+	 * private boolean filterByReliability(Integer productReliability, Integer
+	 * filterReliability) { return
+	 * filterReliability.compareTo(productReliability) > 0; }
+	 * 
+	 * private boolean filterByPersonality(final Product product, final
+	 * SearchFiltersDto searchFilters) { return
+	 * searchFilters.getCreativity().compareTo(product.getFilterCreativity()) <
+	 * 0 && searchFilters.getSporty().compareTo(product.getFilterSporty()) < 0
+	 * &&
+	 * searchFilters.getIntellectual().compareTo(product.getFilterIntellectual()
+	 * ) < 0; }
+	 */
 
 }
