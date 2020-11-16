@@ -41,7 +41,7 @@ function WizardContentResult( {searchProudctsJson, _resetWizardAction} ) {
           description={product.description} 
         />
       )}
-      <div> 
+      <div className="WizardContentResultBottomOptions"> 
         <div className="elInlineBlock elFloatL"> {moreItems && <a href="#" onClick={loadMoreProducts}> Ver mas </a>} </div>
         <div className="elInlineBlock elFloatR"> <a href="#" onClick={handleOnClickReset}> {msg_general_button_new_search} </a> </div>
       </div>

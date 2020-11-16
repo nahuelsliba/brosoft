@@ -10,25 +10,25 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
   const getGenderText = (gender) => {
     switch (gender) {
       case '1':
-          return ' una mujer';
+          return 'una mujer';
       case '2':
-          return ' un hombre';
+          return 'un hombre';
       case '3':
-          return ' una ninia';
+          return 'una ninia';
       case '4':
-          return ' un ninio';
+          return 'un ninio';
       case '7':
-          return ' otro';
+          return 'alguien';
       default:
-          return ' ';
+          return '';
     }
   }
 
   const getAgeText = (age, ageInterval, ageIntervalFrom, ageIntervalTo) => {
     if (ageInterval) {
-      return ' de entre ' + ageIntervalFrom + ' y ' + ageIntervalTo + ' anios';
+      return 'de entre ' + ageIntervalFrom + ' y ' + ageIntervalTo + ' anios';
     }
-    return ' ' + age + 'anios';
+    return 'de ' + age + ' anios';
   }
 
   const getPersonalityText = (creativity, sporty, intellectual) => {
@@ -39,16 +39,16 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
     if (dist1 < distUmbral && dist2 < distUmbral && dist3 < distUmbral) {
       let minPointsUmbral = 10;
       if (creativity + sporty + intellectual < minPointsUmbral) {
-        return ' no lo se';
+        return 'no sé bien cómo es su personalidad';
       }
-      return ' multifacetica';
+      return 'multifacetica/o';
     }
 
-    var personality = ' creativa';
+    var personality = 'más bien creativa/o';
     if (sporty > creativity && sporty > intellectual) {
-      personality = ' sporty';
+      personality = 'más bien deportista';
     } else if (intellectual > creativity && intellectual > sporty) {
-      personality = ' intellectual';
+      personality = 'más bien intelectual';
     }
     return personality;
   }
@@ -56,15 +56,15 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
   const getReliabilityText = (reliability) => {
     switch (reliability) {
       case 1:
-        return ' muy poca confianza';
+        return 'con quien tengo muy poca confianza';
       case 2:
-        return ' poca confianza';
+        return 'con quien tengo poca confianza';
       case 3:
-        return ' moderada confianza';
+        return 'con quien tengo moderada confianza';
       case 4:
-        return ' bastante confianza';
+        return 'con quien tengo bastante confianza';
       case 5:
-        return ' mucha confianza';
+        return 'con quien tengo mucha confianza';
       default:
           return ' ';
     }
@@ -78,11 +78,13 @@ function WizardContentStepsSummary( { gender, age, ageInterval, ageIntervalFrom,
     <div className="WizardContentStepsSummary">
       <p> 
           {msg_wizard_summary_text1}
-          {getGenderText(gender)}, 
-          {getAgeText(age, ageInterval, ageIntervalFrom, ageIntervalTo)}
-          {getPersonalityText(creativity, sporty, intellectual)}
-          {getReliabilityText(reliability)}
-          {getAmountText(amountFrom, amountTo)}
+          <ul>
+            <li>{getGenderText(gender)}</li>
+            <li>{getAgeText(age, ageInterval, ageIntervalFrom, ageIntervalTo)}</li>
+            <li>{getPersonalityText(creativity, sporty, intellectual)}</li>
+            <li>{getReliabilityText(reliability)}</li>
+            <li>{getAmountText(amountFrom, amountTo)}</li>
+          </ul>
       </p>
       <p> {msg_wizard_summary_text2} </p>
     </div>

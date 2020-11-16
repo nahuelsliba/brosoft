@@ -120,10 +120,10 @@ code {
 }
 
 .logo {
-    width: 150px;
-    height: 50px;
+    width: 190px;
+    height: auto;
 
-    margin: 3px 15px 0px 15px; 
+    margin: 5px 15px 0px 15px; 
 }
 
 .WelcomeView {
@@ -155,8 +155,18 @@ code {
     height: 35px;
 }
 
+.WizardProgressBarTitle {
+    color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 0px 0px 0px;
+    height: 35px;
+}
+
 .WizardContent {
-    padding: 15px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 .WizardControlsContainer {
@@ -365,4 +375,14 @@ code {
 
 .wizardItem12C {
     display: inline-grid;
+}
+
+.WizardContentResultBottomOptions {
+    width: 100%;
+    float: left;
+    border-top: 1px solid var(--secondary-100-color);    
+}
+
+.WizardContentStepsSummary li::marker {
+    color: var(--primary-color);
 }
