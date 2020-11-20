@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { showTermsAndConditionsAction } from '../redux/actions/general';
 import { msg_footer_text1, msg_general_label_terms_conditions } from '../i18n/translation';
 
-function AppFooter( { _showTermsAndConditionsAction } ) {
+function AppFooter( { maintenance, _showTermsAndConditionsAction } ) {
 
   const showTermsAndConditions = () => {
     _showTermsAndConditionsAction();
@@ -11,16 +11,16 @@ function AppFooter( { _showTermsAndConditionsAction } ) {
 
   return (    
     <div className="AppFooter"> 
-      <div className="AppFooterText"> {msg_footer_text1} <a href="#" onClick={showTermsAndConditions}>{msg_general_label_terms_conditions}</a> </div>
+      { !maintenance &&
+        <div className="AppFooterText"> {msg_footer_text1} <a href="#" onClick={showTermsAndConditions}>{msg_general_label_terms_conditions}</a> </div>
+      }
     </div>
   );
 }
 
-/*
 const mapStateToProps = (state) => {  
-  return { show : state.general.termsAndConditionsShowing };
+  return { maintenance : state.general.maintenance };
 }
-*/
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AppFooter);
+export default connect(mapStateToProps, mapDispatchToProps)(AppFooter);

@@ -2,6 +2,8 @@ export const msg_general_button_begin = 'Comenzar';
 export const msg_general_button_close = 'Cerrar';
 export const msg_general_button_new_search = 'Nueva busqueda';
 
+export const msg_maintenance_view_text1 = 'Sitio en mantenimiento, volveremos pronto.';
+
 export const msg_general_label_terms_conditions = 'Terminos y Condiciones';
 
 export const msg_footer_text1 = 'Al navegar y hacer uso de este sitio web usted acepta nuestros ';

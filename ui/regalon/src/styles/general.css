@@ -126,6 +126,15 @@ code {
     margin: 5px 15px 0px 15px; 
 }
 
+.MaintenanceView {
+    width: 100%;
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    border-top: 35px solid var(--primary-20-color);
+    text-align: center;
+    font-weight: bold;
+}
+
 .WelcomeView {
     width: 100%;
     display: inline-block;

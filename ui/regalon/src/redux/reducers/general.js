@@ -5,8 +5,11 @@ import {
 
 } from '../actions/types';
 
+const MAINTENANCE = false;
+
 const generalInitialState = {
-    termsAndConditionsShowing : false
+    maintenance : MAINTENANCE,
+    termsAndConditionsShowing : false    
 }
 
 const general = (state = generalInitialState, action) => {
